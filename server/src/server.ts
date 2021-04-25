@@ -22,12 +22,12 @@ const server = async () => {
   const apolloServer = await createApolloServer();
 
   const app = Express();
-  
+
   apolloServer.applyMiddleware({ app, cors: false });
 
   app.listen({ port: 4000 }, () =>
-    console.log('🚀 Server ready and listening at port 4000')
-  )
+    console.log('🚀 Server ready and listening at port 4000'),
+  );
 };
 
 server().catch(error => console.log('error: ', error));
