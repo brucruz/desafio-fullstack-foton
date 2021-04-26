@@ -29,6 +29,7 @@ export default class BookResolver {
   async books(
     @Arg('limit', () => Int) limit: number,
     @Arg('cursor', () => String, { nullable: true }) cursor: Date | null,
+    @Arg('query', () => String, { nullable: true }) query: string | null,
   ): Promise<PaginatedBooks> {
     const realLimit = Math.min(50, limit);
     const realLimitPlusOne = realLimit + 1;
@@ -43,7 +44,18 @@ export default class BookResolver {
         : {}),
     };
 
-    const books = await BookModel.find({ ...cursorFilter })
+    const queryFilter = {
+      ...(query
+        ? {
+            title: {
+              $regex: query,
+              $options: 'i',
+            },
+          }
+        : {}),
+    };
+
+    const books = await BookModel.find({ ...cursorFilter, ...queryFilter })
       .sort({ createdAt: 'desc' })
       .limit(realLimitPlusOne);
 

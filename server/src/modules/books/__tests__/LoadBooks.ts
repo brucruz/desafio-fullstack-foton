@@ -76,4 +76,25 @@ describe('a user', () => {
     expect(loadMoreResult.data).toBeTruthy();
     expect(loadMoreResult.data.books.books).toMatchSnapshot();
   });
+
+  it('should be able to query books by their titles', async () => {
+    await seedDb();
+
+    const variables = {
+      limit: 1,
+      query: 'hooked',
+    };
+
+    const testServer = await getTestServer();
+
+    const { query } = createTestClient(testServer());
+    const result = await query({
+      query: queryGQL,
+      variables,
+    });
+
+    expect(result.errors).toBeFalsy();
+    expect(result.data).toBeTruthy();
+    expect(result.data.books.books).toMatchSnapshot();
+  });
 });
