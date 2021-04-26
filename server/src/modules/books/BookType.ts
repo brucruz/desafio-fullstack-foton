@@ -7,18 +7,21 @@ import ObjectIdScalar from '../../type-graphql/ObjectIdScalar';
 export default class Book {
   @Field(() => ObjectIdScalar)
   readonly _id: ObjectId;
-  
-  @Field(() => String, { description: `Book's title`})
+
+  @Field(() => String, { description: `Book's title` })
   title: string;
-  
-  @Field(() => String, { description: `Book's author`})
+
+  @Field(() => String, { description: `Book's subtitle`, nullable: true })
+  subtitle?: string;
+
+  @Field(() => String, { description: `Book's author` })
   author: string;
-  
-  @Field(() => String, { description: `Book's description`})
+
+  @Field(() => String, { description: `Book's description` })
   description: string;
-  
-  @Field(() => String, { description: `Book's cover image`})
-  cover: string;
+
+  @Field(() => String, { description: `Book's cover image`, nullable: true })
+  cover?: string;
 
   _doc?: any;
 

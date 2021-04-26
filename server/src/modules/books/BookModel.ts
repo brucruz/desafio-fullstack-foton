@@ -7,6 +7,10 @@ const Schema = new mongoose.Schema(
       type: String,
       trim: true,
     },
+    subtitle: {
+      type: String,
+      trim: true,
+    },
     author: {
       type: String,
       trim: true,

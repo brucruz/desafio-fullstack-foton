@@ -5,6 +5,9 @@ export default class CreateBookInput {
   @Field(() => String, { description: 'Book title' })
   title: string;
 
+  @Field(() => String, { description: 'Book title', nullable: true })
+  subtitle: string;
+
   @Field(() => String, { description: 'Book author' })
   author: string;
 

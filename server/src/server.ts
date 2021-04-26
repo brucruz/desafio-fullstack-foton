@@ -3,6 +3,7 @@ import 'reflect-metadata';
 import { ApolloServer } from 'apollo-server-express';
 import mongoose from 'mongoose';
 import schema from './graphql/schema';
+import { seedDb } from './mongoose/seed/seedDb';
 
 export async function createApolloServer(): Promise<ApolloServer> {
   const apolloServer = new ApolloServer({
@@ -26,6 +27,10 @@ const server = async () => {
     useFindAndModify: false,
     useCreateIndex: true,
   });
+
+  mongoose.connection.db.dropDatabase();
+
+  await seedDb();
 
   mongoose.set('debug', true);
 

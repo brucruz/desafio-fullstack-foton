@@ -1,20 +1,22 @@
-import { Arg, Mutation, Query, Resolver } from 'type-graphql';
+import { Arg, Int, Mutation, Query, Resolver } from 'type-graphql';
 import BookModel from './BookModel';
 import Book from './BookType';
 import { IBook } from './IBook';
 import CreateBookInput from './inputs/CreateBookInput';
+import PaginatedBooks from './PaginatedBooks';
 
 @Resolver(() => Book)
 export default class BookResolver {
   @Mutation(() => Book)
   async createBook(
     @Arg('data', () => CreateBookInput)
-    { author, description, title, cover }: CreateBookInput,
+    { author, cover, description, subtitle, title }: CreateBookInput,
   ): Promise<IBook> {
     const book = new BookModel({
       author,
       cover,
       description,
+      subtitle,
       title,
     });
 
@@ -23,8 +25,38 @@ export default class BookResolver {
     return book;
   }
 
-  @Query(() => String)
-  hello(): string {
-    return 'hello';
+  @Query(() => PaginatedBooks)
+  async books(
+    @Arg('limit', () => Int) limit: number,
+    @Arg('cursor', () => String, { nullable: true }) cursor: Date | null,
+  ): Promise<PaginatedBooks> {
+    const realLimit = Math.min(50, limit);
+    const realLimitPlusOne = realLimit + 1;
+
+    const cursorFilter = {
+      ...(cursor
+        ? {
+            createdAt: {
+              $lt: cursor,
+            },
+          }
+        : {}),
+    };
+
+    const books = await BookModel.find({ ...cursorFilter })
+      .sort({ createdAt: 'desc' })
+      .limit(realLimitPlusOne);
+
+    const hasNextPage = books.length === realLimitPlusOne;
+
+    const nextCursor = hasNextPage
+      ? books[books.length - 1].createdAt.toISOString()
+      : undefined;
+
+    return {
+      books: books.slice(0, realLimit),
+      hasNextPage,
+      nextCursor,
+    };
   }
 }

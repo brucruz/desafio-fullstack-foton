@@ -11,7 +11,7 @@ type Book {
   author: String!
 
   """Book's cover image"""
-  cover: String!
+  cover: String
 
   """Card creation date"""
   createdAt: DateTime!
@@ -20,6 +20,9 @@ type Book {
   description: String!
   isActive: Boolean!
   removedAt: DateTime
+
+  """Book's subtitle"""
+  subtitle: String
 
   """Book's title"""
   title: String!
@@ -39,6 +42,9 @@ input CreateBookInput {
   description: String!
 
   """Book title"""
+  subtitle: String
+
+  """Book title"""
   title: String!
 }
 
@@ -54,6 +60,12 @@ type Mutation {
 """Mongo object id scalar type"""
 scalar ObjectId
 
+type PaginatedBooks {
+  books: [Book!]!
+  hasNextPage: Boolean!
+  nextCursor: String
+}
+
 type Query {
-  hello: String!
+  books(cursor: String, limit: Int!): PaginatedBooks!
 }
