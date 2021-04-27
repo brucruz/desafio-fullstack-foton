@@ -24,8 +24,8 @@ https://www.figma.com/file/KFElqzD983WNyvMY1SaF0c/book-app?node-id=0%3A1
 
 #### Searching books
 
-- x ] a user should be able to query books by their titles
+- [x] a user should be able to query books by their titles
 
 #### Book details
 
-- [ ] a user should be able to view a book details
+- [x] a user should be able to view a book details

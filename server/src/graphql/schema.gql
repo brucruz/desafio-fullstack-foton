@@ -67,5 +67,6 @@ type PaginatedBooks {
 }
 
 type Query {
+  book(id: String!): Book
   books(cursor: String, limit: Int!, query: String): PaginatedBooks!
 }

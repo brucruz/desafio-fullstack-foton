@@ -71,4 +71,9 @@ export default class BookResolver {
       nextCursor,
     };
   }
+
+  @Query(() => Book, { nullable: true })
+  async book(@Arg('id') id: string): Promise<IBook | null> {
+    return BookModel.findById(id);
+  }
 }
