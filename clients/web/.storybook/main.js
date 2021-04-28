@@ -6,5 +6,12 @@ module.exports = {
   "addons": [
     "@storybook/addon-links",
     "@storybook/addon-essentials"
-  ]
+  ],
+  babel: async (options) => ({
+    ...options,
+    // any extra options you want to set
+    "plugins": [
+      "inline-react-svg"
+    ]
+  }),
 }
