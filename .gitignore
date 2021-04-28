@@ -1,5 +1,48 @@
 server/node_modules
 server/dist
 
+
+
+
 clients/web/node_modules
 clients/web/dist
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+clients/web/.pnp
+clients/web/.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+clients/web/out/
+
+# production
+clients/web/build
+
+# misc
+clients/web/.DS_Store
+clients/web/*.pem
+
+# debug
+clients/web/npm-debug.log*
+clients/web/yarn-debug.log*
+clients/web/yarn-error.log*
+
+# local env files
+clients/web/.env.local
+clients/web/.env.development.local
+clients/web/.env.test.local
+clients/web/.env.production.local
+
+# vercel
+clients/web/.vercel
+
+# jest
+clients/web/.jest-test-results.json
+
+#storybook
+clients/web/build-storybook.log
