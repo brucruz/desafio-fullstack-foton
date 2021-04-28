@@ -1,4 +1,14 @@
+import * as nextImage from 'next/image';
+
 import GlobalStyle from '../src/styles/GlobalStyles';
+
+
+Object.defineProperty(nextImage, 'default', {
+  configurable: true,
+  value: (props) => {
+    return <img {...props} />;
+  },
+});
 
 export const decorators = [
   Story => (
