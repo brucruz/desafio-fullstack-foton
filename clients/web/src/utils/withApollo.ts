@@ -17,13 +17,20 @@ const cache: ApolloCache<NormalizedCacheObject> = new InMemoryCache({
           merge(
             existing: PaginatedBooks | undefined,
             incoming: PaginatedBooks,
+            { variables },
           ): PaginatedBooks {
-            const paginatedBooks: PaginatedBooks = {
-              books: [...(existing?.books || []), ...(incoming.books || [])],
-              hasNextPage: incoming.hasNextPage,
-              nextCursor: incoming.nextCursor,
-              __typename: incoming.__typename,
-            };
+            let paginatedBooks: PaginatedBooks;
+
+            if (variables?.cursor) {
+              paginatedBooks = {
+                books: [...(existing?.books || []), ...(incoming.books || [])],
+                hasNextPage: incoming.hasNextPage,
+                nextCursor: incoming.nextCursor,
+                __typename: incoming.__typename,
+              };
+            } else {
+              paginatedBooks = incoming;
+            }
 
             return paginatedBooks;
           },

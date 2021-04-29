@@ -1,4 +1,5 @@
-import { InputHTMLAttributes, useRef } from 'react';
+/* eslint-disable jsx-a11y/no-autofocus */
+import { InputHTMLAttributes } from 'react';
 import { InputContainer, InputTextArea } from './Input';
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -20,10 +21,10 @@ export function Input({
   icon,
   format = 'input',
   error,
+  autoFocus,
+  defaultValue,
   ...rest
 }: InputProps): JSX.Element {
-  const inputRef = useRef(null);
-
   return (
     <InputContainer {...rest}>
       {label && <label htmlFor={id}>{label}</label>}
@@ -34,19 +35,21 @@ export function Input({
         {format === 'input' && (
           <input
             id={id}
-            ref={inputRef}
             value={value}
             placeholder={placeholder}
             type="text"
+            autoFocus={autoFocus}
+            defaultValue={defaultValue}
           />
         )}
 
         {format === 'textArea' && (
           <textarea
             id={id}
-            ref={inputRef}
             value={value}
             placeholder={placeholder}
+            autoFocus={autoFocus}
+            defaultValue={defaultValue}
           />
         )}
       </InputTextArea>

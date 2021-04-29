@@ -2,6 +2,5 @@
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
-  "/book/[bookId]": "pages/book/[bookId].js",
-  "/": "pages/index.js"
+  "/book/new": "pages/book/new.js"
 }

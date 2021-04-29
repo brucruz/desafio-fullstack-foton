@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`a user should be able to add a book 1`] = `
+Object {
+  "createBook": Object {
+    "author": "JK Rowling",
+    "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.rPTIBOscmtdvxPy3FEWJnQHaKs%26pid%3DApi&f=1",
+    "description": "This is the story of a young boy who finds out he is a wizard",
+    "title": "Harry Potter",
+  },
+}
+`;

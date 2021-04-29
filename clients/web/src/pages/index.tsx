@@ -1,4 +1,4 @@
-import { ChangeEvent, useCallback, useState } from 'react';
+import { ChangeEvent, useCallback } from 'react';
 import { Input } from '../components/Input';
 import {
   HomePageContainer,
@@ -14,9 +14,10 @@ import { NavBar } from '../components/NavBar';
 import { useLoadBooksQuery } from '../generated/graphql';
 import { withApollo } from '../utils/withApollo';
 import { Button } from '../components/Button';
+import { useSearch } from '../hooks/useSearch';
 
 function HomePage(): JSX.Element {
-  const [searchValue, setSearchValue] = useState('');
+  const { query, changeQuery } = useSearch();
 
   const { data, fetchMore, variables } = useLoadBooksQuery({
     variables: {
@@ -26,9 +27,9 @@ function HomePage(): JSX.Element {
 
   const handleSearchInputChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
-      setSearchValue(e.target.value);
+      changeQuery(e.target.value);
     },
-    [],
+    [changeQuery],
   );
 
   const handleFetchMoreBooks = useCallback(() => {
@@ -53,7 +54,7 @@ function HomePage(): JSX.Element {
         <Input
           id="search-book-input"
           icon={<Search />}
-          value={searchValue}
+          value={query}
           placeholder="Search book"
           onChange={handleSearchInputChange}
         />

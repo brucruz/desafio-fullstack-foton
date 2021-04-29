@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const InputContainer = styled.div`
   label {
@@ -28,12 +28,12 @@ export const InputTextArea = styled.div<InputTextAreaProps>`
   padding: 15px;
   border-radius: 10px;
   background: #fdfcfc;
-  box-shadow: ${(props) =>
+  box-shadow: ${props =>
     props.label
-      ? "5px 5px 80px 0px rgba(212, 173, 134, 0.49)"
-      : "5px 5px 80px 0px rgba(212, 173, 134, 0.122623)"};
+      ? '5px 5px 80px 0px rgba(212, 173, 134, 0.49)'
+      : '5px 5px 80px 0px rgba(212, 173, 134, 0.122623)'};
 
-  border: ${(props) => (props.hasError ? "1px solid red" : null)};
+  border: ${props => (props.hasError ? '1px solid red' : null)};
 
   input {
     border: 0px;
@@ -58,7 +58,7 @@ export const InputTextArea = styled.div<InputTextAreaProps>`
 
     font-family: var(--font-pro-text);
     font-size: 16px;
-    line-height: 18px;
+    line-height: 28.5px;
 
     color: #000000;
 

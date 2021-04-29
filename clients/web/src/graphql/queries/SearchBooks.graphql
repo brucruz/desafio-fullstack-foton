@@ -1,0 +1,12 @@
+query SearchBooks($cursor: String, $limit: Int!, $query: String) {
+  books(cursor: $cursor, limit: $limit, query: $query) {
+    books {
+      _id
+      title
+      author
+      cover
+    }
+    hasNextPage
+    nextCursor
+  }
+}
