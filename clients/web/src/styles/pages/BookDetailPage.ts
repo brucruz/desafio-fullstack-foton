@@ -15,7 +15,7 @@ export const BookDetailPageBanner = styled.div`
 
 export const BookDetailPageBannerMask = styled.div`
   background: #fff6e5;
-  border-radius: 0px 0px 100px 0px;
+  border-radius: 0px 0px 10px 0px;
 
   height: 282px;
 
@@ -84,7 +84,7 @@ export const BookDetailPageThumbnail = styled.div`
 
 export const BookDetails = styled.section`
   margin-top: 67px;
-  margin-bottom: 100px;
+  margin-bottom: 140px;
   margin-left: 21px;
   margin-right: 20px;
 
