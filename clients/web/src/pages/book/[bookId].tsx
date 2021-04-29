@@ -19,6 +19,8 @@ import Headphone from '../../assets/icons/headphones.svg';
 import Share from '../../assets/icons/share.svg';
 import { useLoadBookQuery } from '../../generated/graphql';
 
+import BookPlaceholder from '../../assets/icons/cover-placeholder.svg';
+
 function BookDetailPage(): JSX.Element {
   const router = useRouter();
 
@@ -53,14 +55,18 @@ function BookDetailPage(): JSX.Element {
           </NextLink>
 
           <BookDetailPageThumbnail>
-            <NextImage
-              src={
-                data?.book?.cover ||
-                'http://books.google.com/books/content?id=dsz5AwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'
-              }
-              width={151}
-              height={234}
-            />
+            {data?.book?.cover ? (
+              <NextImage
+                src={
+                  data.book.cover ||
+                  'http://books.google.com/books/content?id=dsz5AwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'
+                }
+                width={151}
+                height={234}
+              />
+            ) : (
+              <BookPlaceholder />
+            )}
           </BookDetailPageThumbnail>
         </BookDetailPageBannerMask>
       </BookDetailPageBanner>

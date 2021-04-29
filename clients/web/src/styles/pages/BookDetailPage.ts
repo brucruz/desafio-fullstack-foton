@@ -80,6 +80,12 @@ export const BookDetailPageThumbnail = styled.div`
   right: calc(50% - 151px / 2);
   left: calc(50% - 151px / 2);
   bottom: -36px;
+
+  svg {
+    margin-top: 0px;
+    margin-left: 0px;
+    cursor: auto;
+  }
 `;
 
 export const BookDetails = styled.section`

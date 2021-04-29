@@ -2,6 +2,7 @@ import NextImage from 'next/image';
 import NextLink from 'next/link';
 
 import { BookCardAuthor, BookCardContainer, BookCardTitle } from './BookCard';
+import BookPlaceholder from '../../assets/icons/cover-placeholder-mini.svg';
 
 export interface BookCardProps {
   _id: string;
@@ -19,7 +20,11 @@ export function BookCard({
   return (
     <NextLink href={`/book/${_id}`}>
       <BookCardContainer>
-        {cover && <NextImage src={cover} width={105} height={153} />}
+        {cover ? (
+          <NextImage src={cover} width={105} height={153} />
+        ) : (
+          <BookPlaceholder />
+        )}
 
         <BookCardTitle>{title}</BookCardTitle>
         <BookCardAuthor>by {author}</BookCardAuthor>

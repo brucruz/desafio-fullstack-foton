@@ -11,6 +11,11 @@ export const BookCardContainer = styled.div`
       color: #ff6978;
     }
   }
+
+  svg {
+    width: 105px;
+    height: 153px;
+  }
 `;
 
 export const BookCardTitle = styled.span`

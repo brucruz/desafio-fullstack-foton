@@ -67,6 +67,10 @@ export function SearchPage(): JSX.Element {
             <Button text="Load more" onClick={handleFetchMoreBooks} />
           </div>
         )}
+
+        {data?.books.books.length === 0 && (
+          <p style={{ color: 'red' }}>Books not found</p>
+        )}
       </HomePageContent>
 
       <NavBar
