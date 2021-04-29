@@ -30,7 +30,7 @@ const queryGQL = gql`
 
 describe('a user', () => {
   it('should be able to list books', async () => {
-    await seedDb();
+    await seedDb(2, false);
 
     const variables = {
       limit: 10,
@@ -50,7 +50,7 @@ describe('a user', () => {
   });
 
   it('should be able to load more books', async () => {
-    await seedDb();
+    await seedDb(3, false);
 
     const variables = {
       limit: 1,
@@ -78,7 +78,7 @@ describe('a user', () => {
   });
 
   it('should be able to query books by their titles', async () => {
-    await seedDb();
+    await seedDb(2, false);
 
     const variables = {
       limit: 1,

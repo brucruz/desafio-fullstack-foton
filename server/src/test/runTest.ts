@@ -3,6 +3,7 @@ import { ApolloServerBase, Config } from 'apollo-server-core';
 import mongoose, { ConnectOptions } from 'mongoose';
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import schema from '../graphql/schema';
+import { startCounters, restartCounters } from '../mongoose/seed/createBook';
 
 const mongod = new MongoMemoryServer();
 
@@ -29,9 +30,7 @@ const mongooseOptions: ConnectOptions = {
 
 export async function connectMongoose(): Promise<typeof mongoose | void> {
   jest.setTimeout(20000);
-  // startCounters();
-
-  // return mongoose.connect(global.__MONGO_URI__, {
+  startCounters();
 
   await mongoose.connect(await getMongoMemoryUri(), {
     ...mongooseOptions,
@@ -50,7 +49,7 @@ export async function disconnectMongoose(): Promise<void> {
 
 export async function clearDbAndRestartCounters(): Promise<void> {
   await clearDatabase();
-  // restartCounters();
+  restartCounters();
 }
 
 const getTestServer = async (userId = ''): Promise<() => ApolloServerBase> => {

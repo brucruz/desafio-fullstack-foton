@@ -55,11 +55,16 @@ export default class BookResolver {
         : {}),
     };
 
-    const books = await BookModel.find({ ...cursorFilter, ...queryFilter })
+    const fetchedBooks = await BookModel.find({
+      ...queryFilter,
+      ...cursorFilter,
+    })
       .sort({ createdAt: 'desc' })
       .limit(realLimitPlusOne);
 
-    const hasNextPage = books.length === realLimitPlusOne;
+    const books = fetchedBooks.slice(0, realLimit);
+
+    const hasNextPage = fetchedBooks.length === realLimitPlusOne;
 
     const nextCursor = hasNextPage
       ? books[books.length - 1].createdAt.toISOString()

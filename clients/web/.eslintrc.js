@@ -14,7 +14,7 @@ module.exports = {
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
-    'prettier'
+    'prettier',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -76,7 +76,10 @@ module.exports = {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
         paths: ['src'],
       },
-      typescript: {},
+      typescript: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        paths: ['src'],
+      },
     },
   },
 };

@@ -1,9 +1,12 @@
 import Express from 'express';
 import 'reflect-metadata';
+import 'dotenv/config';
 import { ApolloServer } from 'apollo-server-express';
 import mongoose from 'mongoose';
+import cors from 'cors';
 import schema from './graphql/schema';
 import { seedDb } from './mongoose/seed/seedDb';
+import { __prod__ } from './utils/constants';
 
 export async function createApolloServer(): Promise<ApolloServer> {
   const apolloServer = new ApolloServer({
@@ -37,6 +40,17 @@ const server = async () => {
   const apolloServer = await createApolloServer();
 
   const app = Express();
+
+  app.set('trust proxy', 1);
+  app.use(
+    cors({
+      origin: __prod__
+        ? // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+          [process.env.APP_WEB_URL!, 'http://localhost:3000']
+        : process.env.APP_WEB_URL,
+      credentials: true,
+    }),
+  );
 
   apolloServer.applyMiddleware({ app, cors: false });
 

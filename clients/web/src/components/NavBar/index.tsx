@@ -1,5 +1,5 @@
-import { NavLink, NavLinkProps } from "../NavLink";
-import { NavBarContainer } from "./NavBar";
+import { NavLink, NavLinkProps } from '../NavLink';
+import { NavBarContainer } from './NavBar';
 
 export interface NavBarProps {
   links: NavLinkProps[];
@@ -8,8 +8,8 @@ export interface NavBarProps {
 export function NavBar({ links }: NavBarProps): JSX.Element {
   return (
     <NavBarContainer>
-      {links.map((link) => (
-        <NavLink {...link} />
+      {links.map(link => (
+        <NavLink key={link.icon} {...link} />
       ))}
     </NavBarContainer>
   );

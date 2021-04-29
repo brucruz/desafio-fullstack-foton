@@ -1,21 +1,18 @@
-import NextImage from "next/image";
+import NextImage from 'next/image';
 
-import { BookCardAuthor, BookCardContainer, BookCardTitle } from "./BookCard";
+import { BookCardAuthor, BookCardContainer, BookCardTitle } from './BookCard';
 
 export interface BookCardProps {
-  thumbnail: string;
+  _id: string;
+  cover?: string | null;
   title: string;
   author: string;
 }
 
-export function BookCard({
-  thumbnail,
-  title,
-  author,
-}: BookCardProps): JSX.Element {
+export function BookCard({ cover, title, author }: BookCardProps): JSX.Element {
   return (
     <BookCardContainer>
-      <NextImage src={thumbnail} width={105} height={153} />
+      {cover && <NextImage src={cover} width={105} height={153} />}
 
       <BookCardTitle>{title}</BookCardTitle>
       <BookCardAuthor>by {author}</BookCardAuthor>

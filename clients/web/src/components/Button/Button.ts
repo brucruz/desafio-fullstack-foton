@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ButtonContainer = styled.button`
   background: #ff6978;
@@ -9,6 +9,10 @@ export const ButtonContainer = styled.button`
 
   padding-top: 10px;
   padding-bottom: 9px;
+
+  &:hover {
+    opacity: 0.9;
+  }
 `;
 
 export const ButtonText = styled.p`

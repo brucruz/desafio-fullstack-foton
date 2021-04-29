@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const NavBarContainer = styled.ul`
   display: flex;
@@ -6,5 +6,12 @@ export const NavBarContainer = styled.ul`
   justify-content: space-between;
 
   background-color: #fff;
-  padding: 10px 55px 9px 52px;
+  padding: 10px 0px 9px 0px;
+
+  position: fixed;
+  bottom: 0;
+  /* right: 0;
+  left: 0; */
+  width: 100%;
+  max-width: 500px;
 `;

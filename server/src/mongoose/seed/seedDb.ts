@@ -1,11 +1,20 @@
 import { initialBooks } from '../initialLoad';
 import { createBook } from './createBook';
 
-export async function seedDb() {
+export async function seedDb(
+  maxData?: number,
+  randomOrder: boolean | undefined = true,
+) {
   console.log('Started seeding database');
 
-  const insertedBooks = initialBooks.map(async book => {
-    const insertedBook = await createBook(book);
+  const realMaxData = randomOrder && maxData ? Math.max(28, maxData) : maxData;
+
+  const selectedBooks = realMaxData
+    ? initialBooks.splice(0, realMaxData)
+    : initialBooks;
+
+  const insertedBooks = selectedBooks.map(async book => {
+    const insertedBook = await createBook(book, randomOrder);
 
     return insertedBook;
   });

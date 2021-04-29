@@ -1,12 +1,12 @@
-import { InputHTMLAttributes, useRef } from "react";
-import { InputContainer, InputTextArea } from "./Input";
+import { InputHTMLAttributes, useRef } from 'react';
+import { InputContainer, InputTextArea } from './Input';
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   placeholder?: string;
   value: string;
   icon?: any;
-  format?: "input" | "textArea";
+  format?: 'input' | 'textArea';
   error?: {
     message?: string;
   };
@@ -18,19 +18,20 @@ export function Input({
   value,
   placeholder,
   icon,
-  format = "input",
+  format = 'input',
   error,
+  ...rest
 }: InputProps): JSX.Element {
   const inputRef = useRef(null);
 
   return (
-    <InputContainer>
+    <InputContainer {...rest}>
       {label && <label htmlFor={id}>{label}</label>}
 
       <InputTextArea label={label} hasError={!!error}>
         {icon && icon}
 
-        {format === "input" && (
+        {format === 'input' && (
           <input
             id={id}
             ref={inputRef}
@@ -40,7 +41,7 @@ export function Input({
           />
         )}
 
-        {format === "textArea" && (
+        {format === 'textArea' && (
           <textarea
             id={id}
             ref={inputRef}

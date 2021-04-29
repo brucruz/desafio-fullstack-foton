@@ -1,5 +1,6 @@
 server/node_modules
 server/dist
+server/.env
 
 
 
@@ -17,7 +18,7 @@ clients/web/.pnp.js
 /coverage
 
 # next.js
-/.next/
+clients/web/.next/
 clients/web/out/
 
 # production
