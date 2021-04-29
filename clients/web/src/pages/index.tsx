@@ -31,7 +31,6 @@ function HomePage(): JSX.Element {
     [],
   );
 
-  console.log(data?.books);
   const handleFetchMoreBooks = useCallback(() => {
     data?.books.hasNextPage &&
       fetchMore &&

@@ -1,0 +1,12 @@
+query LoadBooks($cursor: String, $limit: Int!) {
+  books(cursor: $cursor, limit: $limit) {
+    books {
+      _id
+      title
+      author
+      cover
+    }
+    hasNextPage
+    nextCursor
+  }
+}
