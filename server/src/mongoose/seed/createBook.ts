@@ -26,7 +26,7 @@ export const createBook = async (
   randomOrder: boolean | undefined = true,
 ) => {
   // eslint-disable-next-line no-multi-assign
-  const n = (global.__COUNTERS__.books += 1);
+  const n = global.__COUNTERS__ && (global.__COUNTERS__.books += 1);
 
   const createdAt = randomOrder
     ? new Date(
