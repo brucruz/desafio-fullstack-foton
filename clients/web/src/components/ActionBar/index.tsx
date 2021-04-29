@@ -1,5 +1,5 @@
-import { ActionButton, ActionButtonProps } from "../ActionButton";
-import { ActionBarContainer } from "./ActionBar";
+import { ActionButton, ActionButtonProps } from '../ActionButton';
+import { ActionBarContainer } from './ActionBar';
 
 export interface ActionBarProps {
   buttons: ActionButtonProps[];
@@ -8,7 +8,7 @@ export interface ActionBarProps {
 export function ActionBar({ buttons }: ActionBarProps): JSX.Element {
   return (
     <ActionBarContainer>
-      {buttons.map((button) => (
+      {buttons.map(button => (
         <ActionButton {...button} />
       ))}
     </ActionBarContainer>

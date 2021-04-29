@@ -1,6 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ActionBarContainer = styled.ul`
+  position: fixed;
+  bottom: 53px;
+  width: 100%;
+  max-width: 500px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;

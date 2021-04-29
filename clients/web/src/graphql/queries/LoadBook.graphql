@@ -1,0 +1,10 @@
+query LoadBook($id: String!) {
+  book(id: $id) {
+    _id
+    title
+    subtitle
+    author
+    description
+    cover
+  }
+}

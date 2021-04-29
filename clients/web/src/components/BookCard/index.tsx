@@ -1,4 +1,5 @@
 import NextImage from 'next/image';
+import NextLink from 'next/link';
 
 import { BookCardAuthor, BookCardContainer, BookCardTitle } from './BookCard';
 
@@ -9,13 +10,20 @@ export interface BookCardProps {
   author: string;
 }
 
-export function BookCard({ cover, title, author }: BookCardProps): JSX.Element {
+export function BookCard({
+  _id,
+  cover,
+  title,
+  author,
+}: BookCardProps): JSX.Element {
   return (
-    <BookCardContainer>
-      {cover && <NextImage src={cover} width={105} height={153} />}
+    <NextLink href={`/book/${_id}`}>
+      <BookCardContainer>
+        {cover && <NextImage src={cover} width={105} height={153} />}
 
-      <BookCardTitle>{title}</BookCardTitle>
-      <BookCardAuthor>by {author}</BookCardAuthor>
-    </BookCardContainer>
+        <BookCardTitle>{title}</BookCardTitle>
+        <BookCardAuthor>by {author}</BookCardAuthor>
+      </BookCardContainer>
+    </NextLink>
   );
 }
