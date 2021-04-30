@@ -2,6 +2,36 @@
 
 This challenge was provided by [FotonTech](https://github.com/FotonTech), as a part of its recruitment process.
 
+## Technologies used:
+
+##### Server
+
+- Typescript
+- GraphQL
+  - Apollo Server
+  - TypeGraphQL
+- Express
+- MongoDB
+  - Mongoose
+- Jest
+  - Apollo Server Testing
+  - MongoDB Memory Server
+
+##### Web Client
+
+- Typescript
+- Next.JS
+  - React Hooks
+  - React Context API
+  - Next Apollo
+  - Apollo Client
+  - GraphQL
+- Styled Components
+- React Spring
+- Formik
+  - Yup
+- Storybook
+
 ## Getting started
 
 ### 1) Install packages and Configure server and web client
@@ -44,6 +74,14 @@ You can run tests by running:
 
 ```bash
 yarn test
+```
+
+### 5) Starting Storybook client
+
+You can interact with isolated components with Storybook. To start, run:
+
+```bash
+yarn dev:storybook
 ```
 
 ## Challenge Instructions
