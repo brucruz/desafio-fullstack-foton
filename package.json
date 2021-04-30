@@ -9,6 +9,7 @@
     "startup": "./scripts/startup.sh",
     "dev:server": "./scripts/runServer.sh",
     "dev:client": "./scripts/runClient.sh",
-    "dev:storybook": "./scripts/runStorybook.sh"
+    "dev:storybook": "./scripts/runStorybook.sh",
+    "test": "./scripts/tests.sh"
   }
 }

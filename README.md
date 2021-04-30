@@ -38,6 +38,14 @@ yarn dev:client
 
 The server must be running in order for the data to be fetched and for the web becoming fully functional.
 
+### 4) Running tests
+
+You can run tests by running:
+
+```bash
+yarn test
+```
+
 ## Challenge Instructions
 
 For the challenge to be fulfilled, I had to comply with the following requirements:
