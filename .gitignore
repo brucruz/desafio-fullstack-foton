@@ -7,15 +7,13 @@ server/.env
 
 clients/web/node_modules
 clients/web/dist
+clients/.next
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
 /node_modules
 clients/web/.pnp
 clients/web/.pnp.js
-
-# testing
-/coverage
 
 # next.js
 clients/web/.next/

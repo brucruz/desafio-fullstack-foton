@@ -11,7 +11,7 @@ import {
 } from '../../styles/pages/AddBookPage';
 import { withApollo } from '../../utils/withApollo';
 
-import Home from '../../assets/icons/home.svg';
+import Home from '../../assets/icons/home-gray.svg';
 import Plus from '../../assets/icons/plus.svg';
 import User from '../../assets/icons/user.svg';
 import { Input } from '../../components/Input';

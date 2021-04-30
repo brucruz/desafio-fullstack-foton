@@ -2,7 +2,7 @@ import { useCallback, useEffect } from 'react';
 import { Input } from '../components/Input';
 import { HomePageContainer, HomePageContent } from '../styles/pages/HomePage';
 import Search from '../assets/icons/search.svg';
-import Home from '../assets/icons/home.svg';
+import Home from '../assets/icons/home-black.svg';
 import Plus from '../assets/icons/plus.svg';
 import User from '../assets/icons/user.svg';
 import { BooksCardsList } from '../components/BookCardsList';

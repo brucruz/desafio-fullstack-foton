@@ -13,8 +13,4 @@ export const BookCardsListContainer = styled.div`
   @media ${device.mobileM} {
     grid-template-columns: 105px 105px 105px;
   }
-
-  @media ${device.tablet} {
-    grid-template-columns: 105px 105px 105px 105px;
-  }
 `;
