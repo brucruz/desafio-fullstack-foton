@@ -33,7 +33,7 @@ yarn dev:server
 You can start the web client by running:
 
 ```bash
-yarn dev:server
+yarn dev:client
 ```
 
 The server must be running in order for the data to be fetched and for the web becoming fully functional.
