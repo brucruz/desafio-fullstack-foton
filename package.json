@@ -1,0 +1,14 @@
+{
+  "name": "desafio-fullstack-foton",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/brucruz/desafio-fullstack-foton.git",
+  "author": "Bruno Cruz <bru.cruz@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "startup": "./scripts/startup.sh",
+    "dev:server": "./scripts/runServer.sh",
+    "dev:client": "./scripts/runClient.sh",
+    "dev:storybook": "./scripts/runStorybook.sh"
+  }
+}
