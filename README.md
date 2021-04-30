@@ -4,7 +4,7 @@ This challenge was provided by [FotonTech](https://github.com/FotonTech), as a p
 
 ## Technologies used:
 
-##### Server
+#### Server
 
 - Typescript
 - GraphQL
@@ -17,7 +17,7 @@ This challenge was provided by [FotonTech](https://github.com/FotonTech), as a p
   - Apollo Server Testing
   - MongoDB Memory Server
 
-##### Web Client
+#### Web Client
 
 - Typescript
 - Next.JS

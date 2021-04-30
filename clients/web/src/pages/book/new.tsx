@@ -16,7 +16,10 @@ import Plus from '../../assets/icons/plus.svg';
 import User from '../../assets/icons/user.svg';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
-import { useCreateBookMutation } from '../../generated/graphql';
+import {
+  useCreateBookMutation,
+  LoadBooksDocument,
+} from '../../generated/graphql';
 import { useSnackbar } from '../../hooks/useSnackbar';
 
 export interface AddBookFormVariables {
@@ -48,6 +51,14 @@ function AddBookPage(): JSX.Element {
         variables: {
           data: values,
         },
+        refetchQueries: [
+          {
+            query: LoadBooksDocument,
+            variables: {
+              limit: 24,
+            },
+          },
+        ],
       });
 
       if (response.data) {
