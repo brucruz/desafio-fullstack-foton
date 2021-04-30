@@ -134,6 +134,7 @@ function AddBookPage(): JSX.Element {
             text: 'Home',
             icon: Home,
             selected: false,
+            url: '/',
           },
           {
             text: 'Add Book',

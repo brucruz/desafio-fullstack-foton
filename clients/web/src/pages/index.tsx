@@ -86,6 +86,7 @@ function HomePage(): JSX.Element {
             text: 'Add Book',
             icon: Plus,
             selected: false,
+            url: '/book/new',
           },
           {
             text: 'Profile',
